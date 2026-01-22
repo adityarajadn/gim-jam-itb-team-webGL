@@ -1,0 +1,3 @@
+format penamaan file: [kategori]_namaObjek
+
+kategori: UI, Prefabs, Levels, dst...
