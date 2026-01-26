@@ -3,26 +3,31 @@ extends CharacterBody2D
 @onready var player = $"../Player"
 
 var isAttack := false
-var speed := 100
-var hp = 50
+var speed := 60
+var hp = 75
+
+func _ready():
+	$animasiTank.play("Walk")
+
 
 func _physics_process(_delta):
 	if player == null:
 		return
 
 	var dir = (player.position - position).normalized()
-	$animasiRegular.flip_h = dir.x < 0
+	$animasiTank.flip_h = dir.x < 0
 
 	if isAttack:
-		if $animasiRegular.animation != "Attack":
-			$animasiRegular.play("Attack")
+		if $animasiTank.animation != "Attack":
+			$animasiTank.play("Attack")
 		velocity = Vector2.ZERO
 	else:
-		if $animasiRegular.animation != "Walk":
-			$animasiRegular.play("Walk")
+		if $animasiTank.animation != "Walk":
+			$animasiTank.play("Walk")
 		velocity = dir * speed
 
 	move_and_slide()
+
 
 func take_damage(amount):
 	hp -= amount
@@ -33,8 +38,8 @@ func take_damage(amount):
 func die():
 	isAttack = false
 	velocity = Vector2.ZERO
-	$animasiRegular.play("Death")
-	await $animasiRegular.animation_finished
+	$animasiTank.play("Death")
+	await $animasiTank.animation_finished
 	queue_free()
 
 func _on_area_2d_body_entered(body):
