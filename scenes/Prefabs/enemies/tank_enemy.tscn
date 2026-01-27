@@ -239,6 +239,9 @@ size = Vector2(12.600002, 24.400005)
 [sub_resource type="CircleShape2D" id="CircleShape2D_ro7nh"]
 radius = 16.201235
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm18"]
+size = Vector2(34.199997, 20.400002)
+
 [node name="Tank_enemy" type="CharacterBody2D" unique_id=2036617156 groups=["Enemies"]]
 scale = Vector2(5, 5)
 motion_mode = 1
@@ -261,5 +264,14 @@ shape = SubResource("RectangleShape2D_6jm8k")
 position = Vector2(2.8, -0.8)
 shape = SubResource("CircleShape2D_ro7nh")
 
+[node name="area attack" type="Area2D" parent="." unique_id=1614396931]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area attack" unique_id=1655409581]
+position = Vector2(2.3841854e-07, 4.599998)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_7dm18")
+debug_color = Color(0.9728078, 0.13604656, 0.248, 0.41960785)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="area attack" to="." method="_on_area_attack_body_entered"]
