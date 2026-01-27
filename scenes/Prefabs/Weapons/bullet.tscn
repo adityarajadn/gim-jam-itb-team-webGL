@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdpnrs7l6jctp"]
+
+[ext_resource type="Script" uid="uid://cfdks5ay4t1w7" path="res://scripts/Prefabs/weapons/bullet.gd" id="1_dt4hg"]
+[ext_resource type="Texture2D" uid="uid://df2q86ftyhhtf" path="res://assets/items/weapons/bullet.png" id="1_qmuxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt4hg"]
+size = Vector2(10, 8)
+
+[node name="bullet" type="CharacterBody2D"]
+script = ExtResource("1_dt4hg")
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="body"]
+texture = ExtResource("1_qmuxg")
+
+[node name="hit range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit range"]
+shape = SubResource("RectangleShape2D_dt4hg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="hit range" to="." method="_on_hit_range_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
