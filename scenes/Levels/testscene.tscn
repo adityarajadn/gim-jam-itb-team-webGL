@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://babgqwkyjp127"]
+
+[ext_resource type="PackedScene" uid="uid://d2xevhpsw45a2" path="res://player.tscn" id="1_akx07"]
+[ext_resource type="PackedScene" uid="uid://dyiepahjb5gep" path="res://scenes/Prefabs/Weapons/gun.tscn" id="2_m6h70"]
+[ext_resource type="PackedScene" uid="uid://djyenauivqjl" path="res://scenes/Prefabs/Weapons/knife.tscn" id="3_yact0"]
+[ext_resource type="PackedScene" uid="uid://cdijhvk7efyyc" path="res://scenes/Prefabs/Effects/bandage.tscn" id="4_ewder"]
+[ext_resource type="PackedScene" uid="uid://cxe6sd6fx6jb0" path="res://scenes/Prefabs/Effects/antidote.tscn" id="5_22aot"]
+[ext_resource type="PackedScene" uid="uid://c6o2q76bj1u0s" path="res://scenes/Prefabs/Effects/flash_light.tscn" id="6_xrlxc"]
+[ext_resource type="PackedScene" uid="uid://diy4vtycgkorl" path="res://scenes/Prefabs/enemies/ranged_enemy.tscn" id="7_57nxc"]
+[ext_resource type="PackedScene" uid="uid://dh1lnj8yjjpdn" path="res://scenes/Prefabs/enemies/regular_enemy.tscn" id="8_cytc6"]
+[ext_resource type="PackedScene" uid="uid://6sqf346ykn3o" path="res://scenes/Prefabs/enemies/tank_enemy.tscn" id="9_bnw6k"]
+
+[node name="Testscene" type="Node2D" unique_id=586025329]
+
+[node name="Gun" parent="." unique_id=814146639 instance=ExtResource("2_m6h70")]
+position = Vector2(493, 283)
+scale = Vector2(2.48, 2.48)
+
+[node name="knife" parent="." unique_id=536633829 instance=ExtResource("3_yact0")]
+position = Vector2(368, 367)
+scale = Vector2(2.3599975, 2.3599975)
+
+[node name="bandage" parent="." unique_id=1201814269 instance=ExtResource("4_ewder")]
+position = Vector2(496, 433)
+scale = Vector2(2.56, 2.56)
+
+[node name="antidote" parent="." unique_id=181134152 instance=ExtResource("5_22aot")]
+position = Vector2(217, 471)
+scale = Vector2(2.8400025, 2.8400025)
+
+[node name="flash light" parent="." unique_id=994589601 instance=ExtResource("6_xrlxc")]
+position = Vector2(101.00001, 291.00003)
+scale = Vector2(2.250019, 2.250019)
+
+[node name="enemies" type="Node2D" parent="." unique_id=677159968]
+
+[node name="Ranged_enemy" parent="enemies" unique_id=572654183 instance=ExtResource("7_57nxc")]
+position = Vector2(681, 412)
+
+[node name="Regular_Enemy" parent="enemies" unique_id=1792000764 instance=ExtResource("8_cytc6")]
+position = Vector2(-195, 482)
+
+[node name="Tank_enemy" parent="enemies" unique_id=536029835 instance=ExtResource("9_bnw6k")]
+position = Vector2(-103, 149)
+
+[node name="Player" parent="." unique_id=2086697837 instance=ExtResource("1_akx07")]
+position = Vector2(233, 221)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1658000502]
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0

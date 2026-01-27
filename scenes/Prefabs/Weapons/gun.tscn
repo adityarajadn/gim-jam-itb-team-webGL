@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyiepahjb5gep"]
+
+[ext_resource type="Texture2D" uid="uid://ckh7ne2oq1ouk" path="res://assets/items/weapons/weapon gun.png" id="1_euuoo"]
+[ext_resource type="Script" uid="uid://6qipaqk4r1cc" path="res://scripts/Prefabs/weapons/gun.gd" id="1_nvlgi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nvlgi"]
+radius = 16.0
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_nvlgi")
+
+[node name="body" type="Node2D" parent="."]
+
+[node name="bulletSpawnPosition" type="Node2D" parent="body"]
+position = Vector2(16, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="body"]
+texture_filter = 1
+texture = ExtResource("1_euuoo")
+
+[node name="collect area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collect area"]
+shape = SubResource("CircleShape2D_nvlgi")
+
+[connection signal="body_entered" from="collect area" to="." method="_on_collect_area_body_entered"]

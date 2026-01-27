@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dd1qeu1u71e3d"]
+
+[ext_resource type="PackedScene" uid="uid://d2xevhpsw45a2" path="res://player.tscn" id="1_o2dtp"]
+[ext_resource type="PackedScene" uid="uid://diy4vtycgkorl" path="res://scenes/Prefabs/enemies/ranged_enemy.tscn" id="4_svbdm"]
+
+[node name="Node2D" type="Node2D" unique_id=602671095]
+position = Vector2(602, 339)
+
+[node name="Ranged_enemy" parent="." unique_id=1785873788 instance=ExtResource("4_svbdm")]
+position = Vector2(365.00003, -3.9999695)
+
+[node name="Player" parent="." unique_id=70246750 instance=ExtResource("1_o2dtp")]
+position = Vector2(30, 5)
