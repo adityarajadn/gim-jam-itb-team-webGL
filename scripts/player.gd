@@ -73,17 +73,20 @@ func play_run_animation():
 	else:
 		body.play("run_left")
 
+
 func play_idle_animation():
 	if last_facing > 0:
 		body.play("idle_right")
 	else:
 		body.play("idle_left")
 
+
 func play_nohands_animation():
 	if last_facing > 0:
 		body.play("nohands_right")
 	else:
 		body.play("nohands_left")
+
 
 #----Camera----
 func cameraShake():
@@ -123,3 +126,4 @@ func useFlashLight():
 	
 	hasFlashLight = false
 	flash_light.flashLightEffect()
+
