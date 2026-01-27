@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://babgqwkyjp127"]
+[gd_scene load_steps=8 format=3 uid="uid://babgqwkyjp127"]
 
 [ext_resource type="PackedScene" uid="uid://d2xevhpsw45a2" path="res://player.tscn" id="1_akx07"]
 [ext_resource type="PackedScene" uid="uid://dyiepahjb5gep" path="res://scenes/Prefabs/Weapons/gun.tscn" id="2_m6h70"]
 [ext_resource type="PackedScene" uid="uid://djyenauivqjl" path="res://scenes/Prefabs/Weapons/knife.tscn" id="3_yact0"]
 [ext_resource type="PackedScene" uid="uid://cdijhvk7efyyc" path="res://scenes/Prefabs/Effects/bandage.tscn" id="4_ewder"]
 [ext_resource type="PackedScene" uid="uid://cxe6sd6fx6jb0" path="res://scenes/Prefabs/Effects/antidote.tscn" id="5_22aot"]
+[ext_resource type="PackedScene" uid="uid://b1nlnmlik5ipd" path="res://scenes/UI/hud.tscn" id="6_apkdw"]
 [ext_resource type="PackedScene" uid="uid://c6o2q76bj1u0s" path="res://scenes/Prefabs/Effects/flash_light.tscn" id="6_xrlxc"]
 
 [node name="Testscene" type="Node2D"]
@@ -29,8 +30,11 @@ scale = Vector2(2.8400025, 2.8400025)
 position = Vector2(101.00001, 291.00003)
 scale = Vector2(2.250019, 2.250019)
 
+[node name="HUD" parent="." instance=ExtResource("6_apkdw")]
+
 [node name="Player" parent="." instance=ExtResource("1_akx07")]
 position = Vector2(233, 221)
+hud_path = NodePath("../HUD")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
