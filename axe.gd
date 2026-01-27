@@ -1,24 +1,26 @@
 extends Area2D
 
 @export var speed := 500
-@export var max_distance := 500
+@export var max_distance := 400
 @export var collision_delay := 0.08
 
-var direction: Vector2 = Vector2.ZERO
+var direction: Vector2
 var start_pos: Vector2
 var stuck := false
 var can_hit := false
+var target: Node2D   # <-- injected dependency
 
 @onready var sprite: AnimatedSprite2D = $animasiKapak
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 
-func init(dir: Vector2) -> void:
+func init(dir: Vector2, target_ref: Node2D) -> void:
 	direction = dir.normalized()
+	target = target_ref
+	start_pos = global_position
 
 
 func _ready() -> void:
-	start_pos = global_position
 	sprite.play("Throw")
 
 	monitoring = true
@@ -44,13 +46,11 @@ func _physics_process(delta: float) -> void:
 		stick_to_ground()
 
 
-@onready var player = $"../Player"
-
 func _on_body_entered(body: Node) -> void:
 	if stuck or not can_hit:
 		return
 
-	if body == player:
+	if body == target:
 		queue_free()
 		return
 

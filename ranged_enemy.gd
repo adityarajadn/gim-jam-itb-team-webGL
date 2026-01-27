@@ -4,11 +4,12 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimasiRange
 
 @export var axe_scene: PackedScene
-@export var attack_range := 500
+@export var attack_range := 400
 @export var speed := 60
 @export var throw_frame := 2
 @export var throw_offset := 20
 
+var hp := 75
 var attacking := false
 var can_throw := true
 
@@ -41,6 +42,8 @@ func start_attack_loop() -> void:
 	async_attack_loop()
 
 
+
+
 func async_attack_loop() -> void:
 	while attacking \
 	and player != null \
@@ -67,7 +70,7 @@ func _on_animasi_range_frame_changed() -> void:
 
 		var dir = (player.global_position - global_position).normalized()
 		var axe = axe_scene.instantiate()
-		get_parent().add_child(axe)
+		get_tree().current_scene.add_child(axe)
 
 		axe.global_position = global_position + dir * throw_offset
-		axe.init(dir)
+		axe.init(dir, player)
