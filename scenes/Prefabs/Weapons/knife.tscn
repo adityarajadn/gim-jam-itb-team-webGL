@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://c05wlna6bvne0" path="res://assets/items/weapons/weapon knife.png" id="1_ll6gp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmnb2"]
-size = Vector2(11, 28)
+size = Vector2(28, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jmnb2"]
-radius = 26.019224
+radius = 16.03122
 
 [node name="knife" type="Node2D" unique_id=141791624]
 script = ExtResource("1_jmnb2")
@@ -20,7 +20,7 @@ texture = ExtResource("1_ll6gp")
 [node name="hit box" type="Area2D" parent="." unique_id=662637882]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit box" unique_id=1766333529]
-position = Vector2(1.5, 0)
+position = Vector2(10, 0)
 shape = SubResource("RectangleShape2D_jmnb2")
 
 [node name="collect area" type="Area2D" parent="." unique_id=793307733]

@@ -196,7 +196,7 @@ axe_scene = ExtResource("2_id13a")
 
 [node name="AnimasiRange" type="AnimatedSprite2D" parent="." unique_id=964581664]
 sprite_frames = SubResource("SpriteFrames_g8mmk")
-animation = &"Death"
+animation = &"Walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636741386]
 position = Vector2(3.0000017, 4.200001)

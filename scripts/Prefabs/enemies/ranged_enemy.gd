@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = $"../../Player"
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimasiRange
 
 @export var axe_scene: PackedScene
@@ -46,7 +46,7 @@ func _physics_process(_delta):
 
 
 func start_attack_loop() -> void:
-	async_attack_loop()
+	await async_attack_loop()
 
 
 func async_attack_loop() -> void:

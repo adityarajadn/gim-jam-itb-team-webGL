@@ -237,7 +237,7 @@ animations = [{
 size = Vector2(12.600002, 24.400005)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ro7nh"]
-radius = 11.415778
+radius = 16.201235
 
 [node name="Tank_enemy" type="CharacterBody2D" unique_id=2036617156 groups=["Enemies"]]
 scale = Vector2(5, 5)
