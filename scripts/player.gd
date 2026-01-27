@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed := 250
 
 @onready var body: AnimatedSprite2D = $"Body AnimatedSprite2D"
-@onready var hands: AnimatedSprite2D = $"Hands AnimatedSprite2D"
+#@onready var hands: AnimatedSprite2D = $"Hands AnimatedSprite2D"
 @onready var camera: Camera2D = $Camera2D
 
 var last_facing := 1   # 1 = right, -1 = left
@@ -24,6 +24,9 @@ var isPoisonActive = false
 var shakeIntensity = 2
 var shakeDuration = 0.2
 var isShake = false
+
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(_delta):
 	var input_dir = Vector2.ZERO
@@ -126,4 +129,3 @@ func useFlashLight():
 	
 	hasFlashLight = false
 	flash_light.flashLightEffect()
-

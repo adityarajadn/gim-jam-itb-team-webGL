@@ -1,15 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd1qeu1u71e3d"]
+
+[gd_scene format=3 uid="uid://dd1qeu1u71e3d"]
 
 [ext_resource type="PackedScene" uid="uid://d2xevhpsw45a2" path="res://player.tscn" id="1_o2dtp"]
-[ext_resource type="PackedScene" uid="uid://cl5lgncafcw07" path="res://axe.tscn" id="3_rp5j5"]
-[ext_resource type="PackedScene" uid="uid://diy4vtycgkorl" path="res://ranged_enemy.tscn" id="4_svbdm"]
+[ext_resource type="PackedScene" uid="uid://diy4vtycgkorl" path="res://scenes/Prefabs/enemies/ranged_enemy.tscn" id="4_svbdm"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=602671095]
 position = Vector2(602, 339)
 
-[node name="Ranged_enemy" parent="." instance=ExtResource("4_svbdm")]
+[node name="Ranged_enemy" parent="." unique_id=1785873788 instance=ExtResource("4_svbdm")]
 position = Vector2(365.00003, -3.9999695)
-axe_scene = ExtResource("3_rp5j5")
 
-[node name="Player" parent="." instance=ExtResource("1_o2dtp")]
+[node name="Player" parent="." unique_id=70246750 instance=ExtResource("1_o2dtp")]
 position = Vector2(30, 5)
