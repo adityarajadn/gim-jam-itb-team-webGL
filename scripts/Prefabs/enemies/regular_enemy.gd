@@ -5,6 +5,7 @@ extends CharacterBody2D
 var isAttack := false
 var speed := 100
 var hp = 50
+var damage = 2
 
 func death():
 	if hp <= 0:
@@ -30,22 +31,10 @@ func _physics_process(_delta):
 	move_and_slide()
 	death()
 
-func take_damage(amount):
-	hp -= amount
-	if hp <= 0:
-		die()
-
-
-func die():
-	isAttack = false
-	velocity = Vector2.ZERO
-	$animasiRegular.play("Death")
-	await $animasiRegular.animation_finished
-	queue_free()
-
 func _on_area_2d_body_entered(body):
 	if body == player:
 		isAttack = true
+		body.takeDamage(damage)
 
 func _on_area_2d_body_exited(body):
 	if body == player:

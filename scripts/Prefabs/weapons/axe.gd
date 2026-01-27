@@ -9,16 +9,18 @@ var start_pos: Vector2
 var stuck := false
 var can_hit := false
 
+var damage = 5
+
 @onready var sprite: AnimatedSprite2D = $animasiKapak
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 
 func init(dir: Vector2) -> void:
 	direction = dir.normalized()
+	start_pos = global_position
 
 
 func _ready() -> void:
-	start_pos = global_position
 	sprite.play("Throw")
 
 	monitoring = true
@@ -51,6 +53,7 @@ func _on_body_entered(body: Node) -> void:
 		return
 
 	if body == player:
+		body.takeDamage(damage)
 		queue_free()
 		return
 

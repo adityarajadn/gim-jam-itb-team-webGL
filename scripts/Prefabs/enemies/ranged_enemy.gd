@@ -4,13 +4,13 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimasiRange
 
 @export var axe_scene: PackedScene
-@export var attack_range := 500
 @export var speed := 60
 @export var throw_frame := 2
 @export var throw_offset := 20
 
+var player_in_throw_range := false
 var attacking := false
-var can_throw := true
+var can_throw := false
 
 var hp = 40
 
@@ -24,22 +24,24 @@ func _physics_process(_delta):
 		return
 
 	var to_player = player.global_position - global_position
-	var distance = to_player.length()
 	var dir = to_player.normalized()
 
 	sprite.flip_h = dir.x < 0
 
-	if distance > attack_range:
-		attacking = false
-		can_throw = true
-		velocity = dir * speed
-		if sprite.animation != "Walk":
-			sprite.play("Walk")
-	else:
-		velocity = Vector2.ZERO
+	# Selalu bergerak ke player
+	velocity = dir * speed
+	
+	# Play animasi berdasarkan state
+	if player_in_throw_range:
 		if not attacking:
 			attacking = true
 			start_attack_loop()
+		if sprite.animation != "Attack":
+			sprite.play("Attack")
+	else:
+		attacking = false
+		if sprite.animation != "Walk":
+			sprite.play("Walk")
 
 	move_and_slide()
 	death()
@@ -50,10 +52,7 @@ func start_attack_loop() -> void:
 
 
 func async_attack_loop() -> void:
-	while attacking \
-	and player != null \
-	and global_position.distance_to(player.global_position) <= attack_range:
-
+	while attacking and player != null and player_in_throw_range:
 		can_throw = true
 		sprite.play("Attack")
 		await sprite.animation_finished
@@ -79,3 +78,15 @@ func _on_animasi_range_frame_changed() -> void:
 
 		axe.global_position = global_position + dir * throw_offset
 		axe.init(dir)
+
+
+func _on_throw_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_throw_range = true
+
+
+func _on_throw_range_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		player_in_throw_range = false
+		attacking = false
+		can_throw = false

@@ -188,6 +188,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jm8k"]
 size = Vector2(27.300003, 20.950005)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_id13a"]
+radius = 63.00793
+
 [node name="Ranged_enemy" type="CharacterBody2D" unique_id=572654183 groups=["Enemies"]]
 scale = Vector2(5, 5)
 motion_mode = 1
@@ -203,4 +206,11 @@ position = Vector2(3.0000017, 4.200001)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_6jm8k")
 
+[node name="throw range" type="Area2D" parent="." unique_id=1889206511]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throw range" unique_id=665714614]
+shape = SubResource("CircleShape2D_id13a")
+
 [connection signal="frame_changed" from="AnimasiRange" to="." method="_on_animasi_range_frame_changed"]
+[connection signal="body_entered" from="throw range" to="." method="_on_throw_range_body_entered"]
+[connection signal="body_exited" from="throw range" to="." method="_on_throw_range_body_exited"]
