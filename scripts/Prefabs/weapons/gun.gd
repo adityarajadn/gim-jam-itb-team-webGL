@@ -6,6 +6,9 @@ var bullet_path = preload("uid://bdpnrs7l6jctp")
 @onready var body: Node2D = $body
 
 var isOnPlayer = false
+var isCollected = false  # Prevent duplication
+
+var fireCounter = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	body.position = Vector2(0,0)
@@ -18,10 +21,12 @@ func _process(delta: float) -> void:
 		getFireInput()
 		checkOnPlayer()
 		checkAngle()
+		death()
 
 func getFireInput():
 	if Input.is_action_just_pressed("fire"):
 		spawnBullet()
+		fireCounter += 1
 		
 func spawnBullet():
 	var bullet = bullet_path.instantiate()
@@ -41,7 +46,31 @@ func checkAngle():
 	else:
 		body.scale.y = 1
 
+func equip():
+	print("Gun equipped!")
+	isOnPlayer = true
+	visible = true
+	set_process(true)
+
+func unequip():
+	isOnPlayer = false
+	visible = false
+	set_process(false)
+
 func _on_collect_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		isOnPlayer = true
+	if body.is_in_group("player") and not isCollected:
+		# Simpan ke inventory tapi belum aktif
+		var success = body.add_item_object("gun", self)
+		if success:
+			isCollected = true  # Mark as collected to prevent duplication
+			# Hide gun, tunggu sampai di-equip
+			visible = false
+			set_process(false)
 	pass # Replace with function body.
+
+func death():
+	if fireCounter >= 10:
+		# Clear inventory slot before destroying
+		if player and is_instance_valid(player):
+			player.remove_weapon_from_inventory(self)
+		queue_free()

@@ -8,11 +8,11 @@ func _ready() -> void:
 	
 func _on_collect_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		
+		var success = player.add_item("flashlight")
+		if not success:
+			return   # inventory penuh, item tidak diambil
+		
 		animation_player.play("collected")
-		player.hasFlashLight = true
-		
 		await animation_player.animation_finished
-		
 		queue_free()
-	pass # Replace with function body.
-	

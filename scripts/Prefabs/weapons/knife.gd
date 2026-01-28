@@ -5,6 +5,7 @@ var damage = 5
 var wearOut = 5 
 
 var isOnPlayer = false
+var isCollected = false  # Prevent duplication
 
 @onready var body: Node2D = $body
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 		look_at(get_global_mouse_position())
 		checkOnPlayer()
 		checkAngle()
+		death()
 	pass
 
 
@@ -42,6 +44,7 @@ func hitEnemy(body: Node2D):
 
 	if is_instance_valid(body):
 		body.modulate = Color.WHITE
+		
 	
 func checkOnPlayer():
 	if isOnPlayer == true:
@@ -54,7 +57,31 @@ func checkAngle():
 	else:
 		body.scale.y = 1
 
+func equip():
+	print("Knife equipped!")
+	isOnPlayer = true
+	visible = true
+	set_process(true)
+
+func unequip():
+	isOnPlayer = false
+	visible = false
+	set_process(false)
+
 func _on_collect_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		isOnPlayer = true
+	if body.is_in_group("player") and not isCollected:
+		# Simpan ke inventory tapi belum aktif
+		var success = body.add_item_object("knife", self)
+		if success:
+			isCollected = true  # Mark as collected to prevent duplication
+			# Hide knife, tunggu sampai di-equip
+			visible = false
+			set_process(false)
 	pass # Replace with function body.
+
+func death():
+	if hp <= 0:
+		# Clear inventory slot before destroying
+		if player and is_instance_valid(player):
+			player.remove_weapon_from_inventory(self)
+		queue_free()

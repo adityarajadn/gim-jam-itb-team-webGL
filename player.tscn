@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b5l2vweeyxowg" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://d3own5tyepkx6" path="res://assets/beta assets/Character/Main/Idle/Character_side-left_idle-Sheet6.png" id="2_hqtel"]
+[ext_resource type="PackedScene" uid="uid://dyiepahjb5gep" path="res://scenes/Prefabs/Weapons/gun.tscn" id="2_n7ghd"]
+[ext_resource type="PackedScene" uid="uid://djyenauivqjl" path="res://scenes/Prefabs/Weapons/knife.tscn" id="3_nvl01"]
 [ext_resource type="Texture2D" uid="uid://bx5gc6ab102s8" path="res://assets/beta assets/Character/Main/Idle/Character_side_idle-Sheet6.png" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://cn0umxnpvukio" path="res://assets/beta assets/Character/Main/Run/Character_side-left_run-Sheet6.png" id="4_sweqy"]
 [ext_resource type="Texture2D" uid="uid://wcys6p038f8w" path="res://assets/beta assets/Character/Main/Run/Character_side_run-Sheet6.png" id="5_2hs0m"]
@@ -201,15 +203,17 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
-radius = 27.0
-height = 88.0
+radius = 23.0
+height = 46.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dw050"]
-radius = 28.0
-height = 88.0
+radius = 23.0
+height = 46.0
 
 [node name="Player" type="CharacterBody2D" unique_id=693501871 groups=["player"]]
 script = ExtResource("1_i3pqv")
+gun_scene = ExtResource("2_n7ghd")
+knife_scene = ExtResource("3_nvl01")
 
 [node name="Body AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1125354088]
 scale = Vector2(5, 5.373)

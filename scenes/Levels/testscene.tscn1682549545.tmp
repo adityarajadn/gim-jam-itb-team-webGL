@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://djyenauivqjl" path="res://scenes/Prefabs/Weapons/knife.tscn" id="3_yact0"]
 [ext_resource type="PackedScene" uid="uid://cdijhvk7efyyc" path="res://scenes/Prefabs/Effects/bandage.tscn" id="4_ewder"]
 [ext_resource type="PackedScene" uid="uid://cxe6sd6fx6jb0" path="res://scenes/Prefabs/Effects/antidote.tscn" id="5_22aot"]
-[ext_resource type="PackedScene" uid="uid://dphcqdomak5q8" path="res://scenes/UI/hud.tscn" id="6_apkdw"]
+[ext_resource type="PackedScene" path="res://scenes/UI/hud.tscn" id="6_apkdw"]
 [ext_resource type="PackedScene" uid="uid://c6o2q76bj1u0s" path="res://scenes/Prefabs/Effects/flash_light.tscn" id="6_xrlxc"]
 [ext_resource type="PackedScene" uid="uid://diy4vtycgkorl" path="res://scenes/Prefabs/enemies/ranged_enemy.tscn" id="7_57nxc"]
 [ext_resource type="PackedScene" uid="uid://dh1lnj8yjjpdn" path="res://scenes/Prefabs/enemies/regular_enemy.tscn" id="8_cytc6"]
@@ -46,9 +46,10 @@ position = Vector2(-195, 482)
 [node name="Tank_enemy" parent="enemies" unique_id=536029835 instance=ExtResource("9_bnw6k")]
 position = Vector2(-103, 149)
 
-[node name="Player" parent="." unique_id=2086697837 node_paths=PackedStringArray("camera") instance=ExtResource("1_akx07")]
+[node name="Player" parent="." unique_id=2086697837 node_paths=PackedStringArray("camera", "hud_path") instance=ExtResource("1_akx07")]
 position = Vector2(233, 221)
 camera = NodePath("Camera2D")
+hud_path = NodePath("../HUD")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1658000502 groups=["camera"]]
 position_smoothing_enabled = true

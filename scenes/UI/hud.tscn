@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dphcqdomak5q8"]
+
+[ext_resource type="Script" path="res://scripts/UI/hud.gd" id="1_rd3kb"]
+[ext_resource type="Texture2D" uid="uid://dexq3vnghxesa" path="res://assets/items/effects/antidote.tres" id="2_xh8q5"]
+[ext_resource type="Texture2D" uid="uid://bnna6q3f7r87u" path="res://assets/UI/inventory slot.png" id="2_y5tme"]
+[ext_resource type="Texture2D" uid="uid://kc53bc4g3jog" path="res://assets/items/effects/flashlight.tres" id="3_h03ao"]
+[ext_resource type="Texture2D" uid="uid://ckh7ne2oq1ouk" path="res://assets/items/weapons/weapon gun.png" id="3_xh8q5"]
+[ext_resource type="Texture2D" uid="uid://c05wlna6bvne0" path="res://assets/items/weapons/weapon knife.png" id="4_h03ao"]
+[ext_resource type="Texture2D" uid="uid://ujdelc6kirkv" path="res://assets/items/effects/bandage.png" id="5_7wvwv"]
+
+[node name="HUD" type="CanvasLayer" unique_id=905298697]
+script = ExtResource("1_rd3kb")
+icon_antidote = ExtResource("2_xh8q5")
+icon_flashlight = ExtResource("3_h03ao")
+icon_gun = ExtResource("3_xh8q5")
+icon_knife = ExtResource("4_h03ao")
+icon_heal = ExtResource("5_7wvwv")
+
+[node name="InventoryBG" type="TextureRect" parent="." unique_id=478345312]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -155.0
+offset_right = 104.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_y5tme")
+stretch_mode = 5
+
+[node name="LeftIcon" type="TextureRect" parent="." unique_id=432756519]
+visible = false
+offset_left = 496.0
+offset_top = 533.0
+offset_right = 560.0
+offset_bottom = 597.0
+stretch_mode = 5
+
+[node name="RightIcon" type="TextureRect" parent="." unique_id=604510486]
+visible = false
+offset_left = 592.0
+offset_top = 533.0
+offset_right = 656.0
+offset_bottom = 600.0
+stretch_mode = 5

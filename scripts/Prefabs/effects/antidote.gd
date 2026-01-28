@@ -1,19 +1,17 @@
 extends Node2D
 
+@export var item_id := "antidote"
 @onready var animation_player: AnimationPlayer = $body/AnimationPlayer
-@onready var player = $"../Player"
-var itemIndex = 1
 
 func _ready() -> void:
 	animation_player.play("idle")
 	
 func _on_collect_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
+		var success = body.add_item(item_id)
+		if not success:
+			return  # Inventory penuh
 		
 		animation_player.play("collected")
-		player.hasAntidote = true
-		#print(player.hasAntidote)
 		await animation_player.animation_finished
-		
 		queue_free()
-	pass # Replace with function body.
