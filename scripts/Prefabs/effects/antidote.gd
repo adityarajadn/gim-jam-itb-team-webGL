@@ -12,6 +12,10 @@ func _on_collect_area_body_entered(body: Node2D) -> void:
 		if not success:
 			return  # Inventory penuh
 		
+		var success = player.add_item("antidote")
+		if not success:
+			return   # inventory penuh
+		
 		animation_player.play("collected")
 		await animation_player.animation_finished
 		queue_free()

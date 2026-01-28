@@ -15,6 +15,11 @@ var hp := 100
 var max_hp := 100
 
 
+
+var inventoryLimit = 2
+var slot_left: String = ""
+var slot_right: String = ""
+
 var inventoryLimit = 2
 var slot_left: String = ""
 var slot_right: String = ""

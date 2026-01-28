@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		death()
 
 func getFireInput():
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("m1"):
 		spawnBullet()
 		fireCounter += 1
 		

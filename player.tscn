@@ -1,3 +1,4 @@
+
 [gd_scene format=3 uid="uid://d2xevhpsw45a2"]
 
 [ext_resource type="Script" uid="uid://b5l2vweeyxowg" path="res://scripts/player.gd" id="1_i3pqv"]
@@ -5,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyiepahjb5gep" path="res://scenes/Prefabs/Weapons/gun.tscn" id="2_n7ghd"]
 [ext_resource type="PackedScene" uid="uid://djyenauivqjl" path="res://scenes/Prefabs/Weapons/knife.tscn" id="3_nvl01"]
 [ext_resource type="Texture2D" uid="uid://bx5gc6ab102s8" path="res://assets/beta assets/Character/Main/Idle/Character_side_idle-Sheet6.png" id="3_sweqy"]
+
 [ext_resource type="Texture2D" uid="uid://cn0umxnpvukio" path="res://assets/beta assets/Character/Main/Run/Character_side-left_run-Sheet6.png" id="4_sweqy"]
 [ext_resource type="Texture2D" uid="uid://wcys6p038f8w" path="res://assets/beta assets/Character/Main/Run/Character_side_run-Sheet6.png" id="5_2hs0m"]
 [ext_resource type="Script" uid="uid://j5h00wj83eoy" path="res://scripts/Prefabs/effects/poison.gd" id="6_2hs0m"]
@@ -58,6 +60,7 @@ region = Rect2(48, 0, 12, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_op7ga"]
 atlas = ExtResource("3_sweqy")
 region = Rect2(60, 0, 12, 16)
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
 atlas = ExtResource("4_sweqy")
@@ -157,6 +160,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+
 "texture": SubResource("AtlasTexture_q13i1")
 }, {
 "duration": 1.0,
@@ -202,6 +206,7 @@ animations = [{
 "speed": 10.0
 }]
 
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
 radius = 23.0
 height = 46.0
@@ -242,5 +247,6 @@ shape = SubResource("CapsuleShape2D_1jxqw")
 [node name="collider" type="CollisionShape2D" parent="." unique_id=626166085]
 shape = SubResource("CapsuleShape2D_dw050")
 debug_color = Color(0, 0.63671887, 0.40532205, 0.41960785)
+
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
