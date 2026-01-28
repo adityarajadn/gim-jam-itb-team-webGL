@@ -8,19 +8,16 @@
 
 config_version=5
 
-[animation]
-
-compatibility/default_parent_skeleton_in_mesh_instance_3d=true
-
 [application]
 
 config/name="webGL-gim-jam-itb"
-run/main_scene="res://player.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="res://scenes/UI/MainMenu.tscn"
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[global_group]
+[display]
 
+<<<<<<< HEAD
 player=""
 Enemies=""
 camera=""
@@ -61,3 +58,6 @@ use_item={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+=======
+window/stretch/mode="canvas_items"
+>>>>>>> parent of 00af1b1 (Merge branch 'main' into Hafizh-Feature-Add-UI)
