@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://6sqf346ykn3o"]
 
-[ext_resource type="Script" uid="uid://ce0kyog3jc1fc" path="res://scripts/Prefabs/enemies/tank_enemy.gd" id="1_ro7nh"]
+[ext_resource type="Script" uid="uid://ce0kyog3jc1fc" path="res://tank_enemy.gd" id="1_ro7nh"]
 [ext_resource type="Texture2D" uid="uid://ceky8hlopfwyg" path="res://assets/beta assets/Enemies/Zombie_Big/Zombie_Big_Side_Second-Attack-Sheet15.png" id="2_ro7nh"]
 [ext_resource type="Texture2D" uid="uid://doeuj4kcsng8y" path="res://assets/beta assets/Enemies/Zombie_Big/Zombie_Big_Side_First-Death-Sheet7.png" id="3_md2qv"]
 [ext_resource type="Texture2D" uid="uid://q4gjgq6olmqy" path="res://assets/beta assets/Enemies/Zombie_Big/Zombie_Big_Side_Walk-Sheet8.png" id="4_f4jl6"]
@@ -272,6 +272,7 @@ scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_7dm18")
 debug_color = Color(0.9728078, 0.13604656, 0.248, 0.41960785)
 
+[connection signal="animation_finished" from="animasiTank" to="." method="_on_animasi_tank_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="area attack" to="." method="_on_area_attack_body_entered"]
