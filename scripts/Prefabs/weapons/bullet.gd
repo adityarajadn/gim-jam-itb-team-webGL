@@ -21,12 +21,22 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func _on_hit_range_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
+	if body.is_in_group("Enemies"):
 		hitEnemy(body)
 	pass # Replace with function body.
 
-func hitEnemy(body: Node2D) -> void:
+func hitEnemy(body: Node2D):
+	if not is_instance_valid(body):
+		return
+
 	body.hp -= damage
+
+	body.modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+
+	if is_instance_valid(body):
+		body.modulate = Color.WHITE
+		
 	destroyObject()
 	
 func destroyObject():

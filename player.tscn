@@ -1,8 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://d2xevhpsw45a2"]
+
+[gd_scene format=3 uid="uid://d2xevhpsw45a2"]
 
 [ext_resource type="Script" uid="uid://b5l2vweeyxowg" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://d3own5tyepkx6" path="res://assets/beta assets/Character/Main/Idle/Character_side-left_idle-Sheet6.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://bx5gc6ab102s8" path="res://assets/beta assets/Character/Main/Idle/Character_side_idle-Sheet6.png" id="3_sweqy"]
+
 [ext_resource type="Texture2D" uid="uid://cn0umxnpvukio" path="res://assets/beta assets/Character/Main/Run/Character_side-left_run-Sheet6.png" id="4_sweqy"]
 [ext_resource type="Texture2D" uid="uid://wcys6p038f8w" path="res://assets/beta assets/Character/Main/Run/Character_side_run-Sheet6.png" id="5_2hs0m"]
 [ext_resource type="Script" uid="uid://j5h00wj83eoy" path="res://scripts/Prefabs/effects/poison.gd" id="6_2hs0m"]
@@ -56,6 +58,7 @@ region = Rect2(48, 0, 12, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_op7ga"]
 atlas = ExtResource("3_sweqy")
 region = Rect2(60, 0, 12, 16)
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q13i1"]
 atlas = ExtResource("4_sweqy")
@@ -155,6 +158,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+
 "texture": SubResource("AtlasTexture_q13i1")
 }, {
 "duration": 1.0,
@@ -200,6 +204,7 @@ animations = [{
 "speed": 10.0
 }]
 
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jxqw"]
 radius = 23.0
 height = 46.0
@@ -208,37 +213,38 @@ height = 46.0
 radius = 23.0
 height = 46.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Player" type="CharacterBody2D" unique_id=693501871 groups=["player"]]
 script = ExtResource("1_i3pqv")
 speed = null
 effect = null
 
-[node name="Body AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Body AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1125354088]
 scale = Vector2(5, 5.373)
 sprite_frames = SubResource("SpriteFrames_q13i1")
 animation = &"idle_left"
 
-[node name="Effects" type="Node2D" parent="."]
+[node name="Effects" type="Node2D" parent="." unique_id=225716596]
 
-[node name="poison" type="Node2D" parent="Effects"]
+[node name="poison" type="Node2D" parent="Effects" unique_id=880153976]
 script = ExtResource("6_2hs0m")
 
-[node name="flashLight" type="Node2D" parent="Effects"]
+[node name="flashLight" type="Node2D" parent="Effects" unique_id=1558603780]
 script = ExtResource("7_dw050")
 
-[node name="fog" type="Sprite2D" parent="."]
+[node name="fog" type="Sprite2D" parent="." unique_id=1968652242]
 modulate = Color(1, 1, 1, 0.845)
 texture_filter = 1
 scale = Vector2(10.43125, 10.466666)
 texture = ExtResource("7_1jxqw")
 
-[node name="hitBox" type="Area2D" parent="."]
+[node name="hitBox" type="Area2D" parent="." unique_id=1883406648]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox" unique_id=2061288279]
 shape = SubResource("CapsuleShape2D_1jxqw")
 
-[node name="collider" type="CollisionShape2D" parent="."]
+[node name="collider" type="CollisionShape2D" parent="." unique_id=626166085]
 shape = SubResource("CapsuleShape2D_dw050")
 debug_color = Color(0, 0.63671887, 0.40532205, 0.41960785)
+
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

@@ -33,7 +33,7 @@ func spawnBullet():
 func checkOnPlayer():
 	if isOnPlayer == true:
 		global_position = player.global_position
-		body.position = Vector2(50,0)
+		body.position = Vector2(25,0)
 
 func checkAngle():
 	if rotation > PI / 2 or rotation < -PI / 2:

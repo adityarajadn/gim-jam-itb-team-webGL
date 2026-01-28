@@ -25,14 +25,23 @@ func _process(delta: float) -> void:
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
+	if body.is_in_group("Enemies"):
 		hitEnemy(body)
 		pass
 	pass # Replace with function body.
 
 func hitEnemy(body: Node2D):
+	if not is_instance_valid(body):
+		return
+
 	body.hp -= damage
 	hp -= wearOut
+
+	body.modulate = Color.RED
+	await get_tree().create_timer(0.2).timeout
+
+	if is_instance_valid(body):
+		body.modulate = Color.WHITE
 	
 func checkOnPlayer():
 	if isOnPlayer == true:
