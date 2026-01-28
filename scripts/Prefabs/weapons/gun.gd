@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 		checkAngle()
 
 func getFireInput():
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("m1"):
 		spawnBullet()
 		
 func spawnBullet():
