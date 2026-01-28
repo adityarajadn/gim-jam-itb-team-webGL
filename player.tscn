@@ -1,5 +1,4 @@
-
-[gd_scene format=3 uid="uid://d2xevhpsw45a2"]
+[gd_scene load_steps=0 format=3 uid="uid://d2xevhpsw45a2"]
 
 [ext_resource type="Script" uid="uid://b5l2vweeyxowg" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://d3own5tyepkx6" path="res://assets/beta assets/Character/Main/Idle/Character_side-left_idle-Sheet6.png" id="2_hqtel"]

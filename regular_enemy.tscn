@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dh1lnj8yjjpdn"]
+[gd_scene load_steps=24 format=3 uid="uid://btp8e5tixm3ve"]
 
 [ext_resource type="Script" uid="uid://fux1vgnbib8j" path="res://regular_enemy.gd" id="1_o03xk"]
 [ext_resource type="Texture2D" uid="uid://bddfqfgawul7x" path="res://assets/beta assets/Enemies/Zombie_Small/Zombie_Small_Side_First-Attack-Sheet4.png" id="2_ssxg3"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://6sqf346ykn3o"]
+[gd_scene load_steps=38 format=3 uid="uid://cadhx61g8qwfe"]
 
 [ext_resource type="Script" uid="uid://ce0kyog3jc1fc" path="res://tank_enemy.gd" id="1_ro7nh"]
 [ext_resource type="Texture2D" uid="uid://ceky8hlopfwyg" path="res://assets/beta assets/Enemies/Zombie_Big/Zombie_Big_Side_Second-Attack-Sheet15.png" id="2_ro7nh"]

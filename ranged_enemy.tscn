@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://diy4vtycgkorl"]
+[gd_scene load_steps=30 format=3 uid="uid://bk6p1hpa2bvib"]
 
 [ext_resource type="Script" uid="uid://c40d3hr1opt7p" path="res://ranged_enemy.gd" id="1_b6d6m"]
 [ext_resource type="Texture2D" uid="uid://miy8pmmkfabj" path="res://assets/beta assets/Enemies/Zombie_Axe/Zombie_Axe_Side_Second-Attack-Sheet9.png" id="2_b6d6m"]

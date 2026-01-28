@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cl5lgncafcw07"]
+[gd_scene load_steps=20 format=3 uid="uid://1ggkdkk5iqt0"]
 
 [ext_resource type="Script" uid="uid://q1boy4jb8os4" path="res://axe.gd" id="1_5mfl6"]
 [ext_resource type="Texture2D" uid="uid://b6j2p1d428g3v" path="res://assets/beta assets/Enemies/Zombie_Axe/Axe/Axe_Side_Landing-Sheet5.png" id="2_ed3of"]
