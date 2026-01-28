@@ -3,6 +3,7 @@ extends Area2D
 @export var speed := 500
 @export var max_distance := 500
 @export var collision_delay := 0.08
+@export var damage := 10
 
 var direction: Vector2 = Vector2.ZERO
 var start_pos: Vector2
@@ -32,6 +33,10 @@ func _ready() -> void:
 
 	collision.disabled = false
 	can_hit = true
+	
+	# Debug check
+	if direction == Vector2.ZERO:
+		push_warning("Axe direction is ZERO! init() may not have been called.")
 
 
 func _physics_process(delta: float) -> void:
@@ -44,13 +49,16 @@ func _physics_process(delta: float) -> void:
 		stick_to_ground()
 
 
-@onready var player = $"../Player"
+@onready var player = get_tree().get_first_node_in_group("player")
 
 func _on_body_entered(body: Node) -> void:
 	if stuck or not can_hit:
 		return
 
 	if body == player:
+		if body.has_method("takeDamage"):
+			body.takeDamage(damage)
+			print("Axe hit player for", damage, "damage")
 		queue_free()
 		return
 

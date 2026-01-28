@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-@onready var player = $"../Player"
+@onready var player = get_tree().get_first_node_in_group("player")
 
 var isAttack := false
 var speed := 60
 var hp = 75
+var damage := 10
 
 func _ready():
 	$animasiTank.play("Walk")
@@ -45,6 +46,9 @@ func die():
 func _on_area_2d_body_entered(body):
 	if body == player:
 		isAttack = true
+		if body.has_method("takeDamage"):
+			body.takeDamage(damage)
+			print("Tank enemy hit player")
 
 func _on_area_2d_body_exited(body):
 	if body == player:

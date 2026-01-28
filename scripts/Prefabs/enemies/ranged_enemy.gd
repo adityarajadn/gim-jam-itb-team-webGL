@@ -74,10 +74,14 @@ func _on_animasi_range_frame_changed() -> void:
 
 		var dir = (player.global_position - global_position).normalized()
 		var axe = axe_scene.instantiate()
-		get_parent().add_child(axe)
-
+		
+		# Set position dan direction SEBELUM add_child
 		axe.global_position = global_position + dir * throw_offset
-		axe.init(dir)
+		axe.direction = dir  # Set direction langsung sebelum add
+		
+		get_parent().add_child(axe)
+		
+		print("Axe spawned with direction:", dir)
 
 
 func _on_throw_range_body_entered(body: Node2D) -> void:

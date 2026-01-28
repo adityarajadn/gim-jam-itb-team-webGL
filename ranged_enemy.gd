@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var player = $"../Player"
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite: AnimatedSprite2D = $AnimasiRange
 
 @export var axe_scene: PackedScene
@@ -11,8 +11,13 @@ extends CharacterBody2D
 
 var attacking := false
 var can_throw := true
+var hp := 40
 
 func _physics_process(_delta):
+	if hp <= 0:
+		die()
+		return
+	
 	if player == null:
 		return
 
@@ -67,7 +72,15 @@ func _on_animasi_range_frame_changed() -> void:
 
 		var dir = (player.global_position - global_position).normalized()
 		var axe = axe_scene.instantiate()
-		get_parent().add_child(axe)
-
+		
+		# Set position dan direction SEBELUM add_child
 		axe.global_position = global_position + dir * throw_offset
-		axe.init(dir)
+		axe.direction = dir  # Set direction langsung sebelum add
+		
+		get_parent().add_child(axe)
+		
+		print("Axe spawned with direction:", dir)
+
+func die():
+	queue_free()
+

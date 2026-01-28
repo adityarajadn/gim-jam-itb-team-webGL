@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-@onready var player = $"../Player"
+@onready var player = get_tree().get_first_node_in_group("player")
 
 var isAttack := false
 var speed := 100
 var hp = 50
+var damage := 5
 
 func _physics_process(_delta):
 	if player == null:
@@ -40,6 +41,9 @@ func die():
 func _on_area_2d_body_entered(body):
 	if body == player:
 		isAttack = true
+		if body.has_method("takeDamage"):
+			body.takeDamage(damage)
+			print("Regular enemy hit player")
 
 func _on_area_2d_body_exited(body):
 	if body == player:
