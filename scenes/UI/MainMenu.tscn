@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bya3d356ulchy"]
+
+[ext_resource type="Texture2D" uid="uid://c74pgxdfv27q8" path="res://assets/UI/PlaceholderBg.jpg" id="1_58fj5"]
+[ext_resource type="FontFile" uid="uid://btmlsargb2r3y" path="res://assets/UI/Minecraft.ttf" id="2_3h7gc"]
+[ext_resource type="Script" path="res://scripts/UI/MainMenu.gd" id="2_58fj5"]
+[ext_resource type="Texture2D" uid="uid://dx0k38b3fkda6" path="res://assets/UI/board ui.png" id="3_4vh8y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3h7gc"]
+texture = ExtResource("1_58fj5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1p1q"]
+texture = ExtResource("3_4vh8y")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vh8y"]
+texture = ExtResource("3_4vh8y")
+
+[node name="Control" type="Control" unique_id=976956238]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 4.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.998329, 1.0078546)
+
+[node name="Placeholder" type="Panel" parent="." unique_id=210278923]
+modulate = Color(0.30588236, 0.37254903, 0.654902, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -9.0
+offset_right = -5.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_3h7gc")
+
+[node name="Label" type="Label" parent="." unique_id=687986208]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -272.0
+offset_top = 38.69606
+offset_right = 272.0
+offset_bottom = 175.69606
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_3h7gc")
+theme_override_font_sizes/font_size = 100
+text = "Zombie 67"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1026695714]
+custom_minimum_size = Vector2(260, 100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = 6.8325195
+offset_right = 138.0
+offset_bottom = 124.83252
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 6
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1641065323]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_3h7gc")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxTexture_b1p1q")
+text = "Play"
+script = ExtResource("2_58fj5")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=2108410785]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_3h7gc")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vh8y")
+text = "Credit"
+script = ExtResource("2_58fj5")
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=436041264]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_3h7gc")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_4vh8y")
+text = "Exit"
+script = ExtResource("2_58fj5")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_Play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_Credit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer/Button3" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="VBoxContainer/Button3" method="_on_Exit_pressed"]
