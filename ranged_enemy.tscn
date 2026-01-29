@@ -187,17 +187,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jm8k"]
 size = Vector2(27.300003, 20.950005)
 
-[node name="Ranged_enemy" type="CharacterBody2D" groups=["Enemies"]]
+[node name="Ranged_enemy" type="CharacterBody2D" unique_id=427123780 groups=["Enemies"]]
 position = Vector2(534, 249)
 scale = Vector2(5, 5)
 motion_mode = 1
 script = ExtResource("1_b6d6m")
 
-[node name="AnimasiRange" type="AnimatedSprite2D" parent="."]
+[node name="AnimasiRange" type="AnimatedSprite2D" parent="." unique_id=26501425]
 sprite_frames = SubResource("SpriteFrames_g8mmk")
 animation = &"Attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=362528804]
 position = Vector2(3.0000017, 4.200001)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_6jm8k")
