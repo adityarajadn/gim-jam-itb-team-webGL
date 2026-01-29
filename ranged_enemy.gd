@@ -83,4 +83,3 @@ func _on_animasi_range_frame_changed() -> void:
 
 func die():
 	queue_free()
-
