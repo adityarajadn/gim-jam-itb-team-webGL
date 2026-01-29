@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 
 var isAttack := false
-var speed := 60
+var speed := 170
 var hp = 75
 var damage := 10
 
@@ -13,6 +13,10 @@ func _ready():
 
 func _physics_process(_delta):
 	if player == null:
+		return
+		
+	if hp <= 0:
+		die()
 		return
 
 	var dir = (player.position - position).normalized()
@@ -30,15 +34,10 @@ func _physics_process(_delta):
 	move_and_slide()
 
 
-func take_damage(amount):
-	hp -= amount
-	if hp <= 0:
-		die()
+
 
 
 func die():
-	isAttack = false
-	velocity = Vector2.ZERO
 	$animasiTank.play("Death")
 	await $animasiTank.animation_finished
 	queue_free()
