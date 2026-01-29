@@ -225,7 +225,6 @@ script = ExtResource("6_2hs0m")
 script = ExtResource("7_dw050")
 
 [node name="fog" type="Sprite2D" parent="." unique_id=1968652242]
-visible = false
 modulate = Color(1, 1, 1, 0.845)
 texture_filter = 1
 scale = Vector2(10.43125, 10.466666)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://blblm85gi0v6u"]
+
+[ext_resource type="PackedScene" uid="uid://3c02bg7dvtdh" path="res://scenes/Levels/WaveAlter.tscn" id="1_qiyt1"]
+[ext_resource type="PackedScene" uid="uid://dttn681gutjqy" path="res://scenes/Levels/Spawner.tscn" id="2_gphrv"]
+[ext_resource type="PackedScene" uid="uid://d2xevhpsw45a2" path="res://player.tscn" id="3_0kvnh"]
+
+[node name="Node2D" type="Node2D" unique_id=1369464325]
+
+[node name="TestWaveAlter" parent="." unique_id=1182691797 node_paths=PackedStringArray("spawner") instance=ExtResource("1_qiyt1")]
+spawner = NodePath("Spawner")
+
+[node name="Spawner" parent="TestWaveAlter" unique_id=128202207 node_paths=PackedStringArray("player") instance=ExtResource("2_gphrv")]
+player = NodePath("../../Player")
+
+[node name="Player" parent="." unique_id=693501871 node_paths=PackedStringArray("camera") instance=ExtResource("3_0kvnh")]
+position = Vector2(523, 333)
+camera = NodePath("Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=283511993]

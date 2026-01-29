@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dttn681gutjqy"]
+
+[ext_resource type="Script" uid="uid://d1lq5xrwb4bd2" path="res://scripts/Levels/Spawn_Mechanic.gd" id="1_lwf41"]
+[ext_resource type="PackedScene" uid="uid://btp8e5tixm3ve" path="res://regular_enemy.tscn" id="2_wkxs8"]
+[ext_resource type="PackedScene" uid="uid://bk6p1hpa2bvib" path="res://ranged_enemy.tscn" id="3_ph1b6"]
+[ext_resource type="PackedScene" uid="uid://cadhx61g8qwfe" path="res://tank_enemy.tscn" id="4_lx6sc"]
+
+[node name="Spawner" type="Node2D" unique_id=128202207]
+z_index = 10
+script = ExtResource("1_lwf41")
+regular_enemy = ExtResource("2_wkxs8")
+ranged_enemy = ExtResource("3_ph1b6")
+tank_enemy = ExtResource("4_lx6sc")
