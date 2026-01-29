@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 @export var axe_scene: PackedScene
 @export var attack_range := 500
-@export var speed := 60
+@export var speed := 150
 @export var throw_frame := 2
 @export var throw_offset := 20
 
@@ -54,6 +54,7 @@ func async_attack_loop() -> void:
 		can_throw = true
 		sprite.play("Attack")
 		await sprite.animation_finished
+		await get_tree().create_timer(1.0).timeout
 
 
 func _on_animasi_range_frame_changed() -> void:
@@ -82,5 +83,7 @@ func _on_animasi_range_frame_changed() -> void:
 		print("Axe spawned with direction:", dir)
 
 func die():
+	
+	sprite.play("Death")
+	await sprite.animation_finished
 	queue_free()
-
