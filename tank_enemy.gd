@@ -9,7 +9,7 @@ var damage := 10
 
 func _ready():
 	$animasiTank.play("Walk")
-
+	add_to_group("Enemies")
 
 func _physics_process(_delta):
 	if player == null:
