@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://btp8e5tixm3ve"]
+[gd_scene format=3 uid="uid://dh1lnj8yjjpdn"]
 
 [ext_resource type="Script" uid="uid://fux1vgnbib8j" path="res://regular_enemy.gd" id="1_o03xk"]
 [ext_resource type="Texture2D" uid="uid://bddfqfgawul7x" path="res://assets/beta assets/Enemies/Zombie_Small/Zombie_Small_Side_First-Attack-Sheet4.png" id="2_ssxg3"]
@@ -107,7 +107,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_84cb6")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -141,24 +141,23 @@ size = Vector2(12.199997, 15.525002)
 [sub_resource type="CircleShape2D" id="CircleShape2D_o03xk"]
 radius = 8.856635
 
-[node name="Regular_Enemy" type="CharacterBody2D" groups=["Enemies"]]
+[node name="Regular_Enemy" type="CharacterBody2D" unique_id=512905343 groups=["Enemies"]]
 scale = Vector2(5, 5)
 motion_mode = 1
 script = ExtResource("1_o03xk")
 
-[node name="animasiRegular" type="AnimatedSprite2D" parent="."]
+[node name="animasiRegular" type="AnimatedSprite2D" parent="." unique_id=1033493775]
 sprite_frames = SubResource("SpriteFrames_g8mmk")
-animation = &"Attack"
-frame_progress = 0.34438956
+animation = &"Death"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2145656889]
 position = Vector2(-0.20000458, 0)
 scale = Vector2(0.99999976, 0.99999976)
 shape = SubResource("RectangleShape2D_6jm8k")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." unique_id=514775426]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=815063914]
 shape = SubResource("CircleShape2D_o03xk")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -3,12 +3,16 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 
 var isAttack := false
-var speed := 100
+var speed := 200
 var hp = 50
 var damage := 5
 
 func _physics_process(_delta):
 	if player == null:
+		return
+		
+	if hp <= 0:
+		die()
 		return
 
 	var dir = (player.position - position).normalized()
@@ -25,15 +29,9 @@ func _physics_process(_delta):
 
 	move_and_slide()
 
-func take_damage(amount):
-	hp -= amount
-	if hp <= 0:
-		die()
 
 
 func die():
-	isAttack = false
-	velocity = Vector2.ZERO
 	$animasiRegular.play("Death")
 	await $animasiRegular.animation_finished
 	queue_free()
