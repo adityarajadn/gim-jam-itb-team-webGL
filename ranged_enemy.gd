@@ -13,9 +13,6 @@ var attacking := false
 var can_throw := true
 var hp := 40
 
-func _ready():
-	add_to_group("Enemies")
-
 func _physics_process(_delta):
 	if hp <= 0:
 		die()

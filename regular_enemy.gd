@@ -7,9 +7,6 @@ var speed := 200
 var hp = 50
 var damage := 5
 
-func _ready():
-	add_to_group("Enemies")
-
 func _physics_process(_delta):
 	if player == null:
 		return
